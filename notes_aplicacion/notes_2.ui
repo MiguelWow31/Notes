@@ -66,7 +66,7 @@ background-color: #30C911;
 }
 
 #eliminar {
-background-color: #E20808;
+background-color: rgb(255, 170, 0);
 border-radius: 5px;
 color: white;
 font-size: 15px;
@@ -74,7 +74,7 @@ font-family: Aharoni;
 }
 
 #eliminar:hover{
-background-color: #C10404;
+background-color: rgb(236, 157, 0);
 }
 
 #lista {
@@ -91,7 +91,10 @@ border-radius: 15px;
 background-color: red;
 }
 
-
+#promedio {
+background-color: rgb(221, 147, 0);
+border-radius: 15px;
+}
 </string>
   </property>
   <widget class="QFrame" name="frame">
@@ -217,7 +220,7 @@ background-color: red;
      </font>
     </property>
     <property name="text">
-     <string>Eliminar</string>
+     <string>Promedio</string>
     </property>
    </widget>
    <widget class="QListWidget" name="lista">
@@ -253,11 +256,11 @@ background-color: red;
      </size>
     </property>
    </widget>
-   <widget class="QToolButton" name="icono_eliminar">
+   <widget class="QToolButton" name="promedio">
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>185</y>
+      <y>188</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -267,11 +270,11 @@ background-color: red;
     </property>
     <property name="icon">
      <iconset resource="recursos.qrc">
-      <normaloff>:/path/imagenes/nota_eliminar.ico</normaloff>:/path/imagenes/nota_eliminar.ico</iconset>
+      <normaloff>:/path/imagenes/promedio.ico</normaloff>:/path/imagenes/promedio.ico</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>40</width>
+      <width>30</width>
       <height>35</height>
      </size>
     </property>
