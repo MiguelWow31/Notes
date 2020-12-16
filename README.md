@@ -6,7 +6,7 @@ Esta es una aplicacion desarrollada con PyQt5, la cual permite calcular el prome
 
 # Funciones Beta
 -Estas seran las funciones que se tienen planificadas para la beta
-obviamente se actualzara a medida que se tengan nuevas ideas.
+obviamente se actualizara a medida que se tengan nuevas ideas.
 
 1. Exportar las notas en formato pdf y word
 2. Multiples Sistemas de nota
