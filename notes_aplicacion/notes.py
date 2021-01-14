@@ -1,4 +1,5 @@
 import sys
+from time import sleep
 from PyQt5 import uic, QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtWidgets import QScrollBar
@@ -61,14 +62,52 @@ class VentanaNotes(QDialog):
 
 
 
-        
 
         
+
+class Pantalla_Carga(QtWidgets.QMainWindow):
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
+        uic.loadUi("Pantalla_Carga.ui", self)
+
+        self.setWindowTitle("Pantalla de carga")
+
+        #Asi borramos tanto el marco de ventana, como el fondo
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+
+        #Configuramos el tiempo de la barra de carga
+        self.reloj = QTimer()
+        self.reloj.timeout.connect(self.barra_carga)
+        self.reloj.start(45)
+
+        self.show()
+
+    def barra_carga(self):
+
+        for i in range(1, 101):
+            sleep(1.5)
+
+            self.progressBar.setValue(i)
+
+        self.reloj.stop()
+        self.close()
+
+        self.ventana_main = VentanaPrincipal()
+        self.ventana_main.show()
+
+
+
+
+
+        
+
+
+
 
 
 
 if __name__ == "__main__":
     app =  QtWidgets.QApplication(sys.argv)
-    window = VentanaPrincipal()
-    window.show()
+    window = Pantalla_Carga()
     sys.exit(app.exec_())
