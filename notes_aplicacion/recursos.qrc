@@ -1,8 +1,8 @@
 <RCC>
   <qresource prefix="path">
+    <file>imagenes/-pen_96740.ico</file>
     <file>imagenes/nota.ico</file>
     <file>imagenes/lapiz.ico</file>
-    <file>imagenes/promedio.ico</file>
     <file>imagenes/opciones.ico</file>
     <file>imagenes/fondo.png</file>
   </qresource>

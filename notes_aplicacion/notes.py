@@ -3,6 +3,7 @@ from time import sleep
 from PyQt5 import uic, QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtWidgets import QScrollBar
+from PyQt5.QtWidgets import QGraphicsDropShadowEffect
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
@@ -16,7 +17,9 @@ class VentanaPrincipal(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
         self.inicio.clicked.connect(self.notes)
+        self.opciones.clicked.connect(self.show_opciones)
         self.notes = VentanaNotes()
+        self.opciones_menu = Ventana_Opciones()
 
         self.shadow_inicio = QtWidgets.QGraphicsDropShadowEffect()
         self.shadow_inicio.setBlurRadius(13)
@@ -27,8 +30,13 @@ class VentanaPrincipal(QtWidgets.QMainWindow, Ui_MainWindow):
         self.inicio.setGraphicsEffect(self.shadow_inicio)
         self.opciones.setGraphicsEffect(self.shadow_opciones)
 
+
+
     def notes(self):
     	self.notes.exec_()
+
+    def show_opciones(self):
+        self.opciones_menu.exec_()
 
 
 class VentanaNotes(QDialog):
@@ -72,6 +80,11 @@ class Pantalla_Carga(QtWidgets.QMainWindow):
 
         self.setWindowTitle("Pantalla de carga")
 
+        shadow = QGraphicsDropShadowEffect()
+        shadow.setBlurRadius(25)
+        self.icono.setGraphicsEffect(shadow)
+        self.icono.setIcon(QIcon("imagenes/-pen_96740.ico"))
+
         #Asi borramos tanto el marco de ventana, como el fondo
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -86,7 +99,7 @@ class Pantalla_Carga(QtWidgets.QMainWindow):
     def barra_carga(self):
 
         for i in range(1, 101):
-            sleep(1.5)
+            sleep(0.5)
 
             self.progressBar.setValue(i)
 
@@ -95,6 +108,40 @@ class Pantalla_Carga(QtWidgets.QMainWindow):
 
         self.ventana_main = VentanaPrincipal()
         self.ventana_main.show()
+
+
+class Ventana_Opciones(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+
+        uic.loadUi("opciones.ui", self)
+        self.setFixedSize(407, 417)
+
+        self.setWindowTitle("Menu Opciones")
+
+        shadow_icono = QGraphicsDropShadowEffect()
+        shadow_icono.setBlurRadius(25)
+
+        shadow_frame = QGraphicsDropShadowEffect()
+        shadow_frame.setBlurRadius(25)
+
+        shadow_frame2 = QGraphicsDropShadowEffect()
+        shadow_frame2.setBlurRadius(25)
+
+        self.icono.setGraphicsEffect(shadow_icono)
+        self.frame.setGraphicsEffect(shadow_frame)
+        self.frame_2.setGraphicsEffect(shadow_frame2)
+
+        self.sistema.addItem(QIcon("imagenes/pais_sistema/venezuela.ico"), "Venezuela-Liceo")
+        self.sistema.addItem(QIcon("imagenes/pais_sistema/colombia.ico"), "Colombia")
+
+        self.exportacion.addItem("Si")
+        self.exportacion.addItem("No")
+
+
+
+
+
 
 
 
