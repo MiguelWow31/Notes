@@ -209,6 +209,67 @@ border-radius: 14px;
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
+  <widget class="QPushButton" name="aplicar">
+   <property name="geometry">
+    <rect>
+     <x>84</x>
+     <y>340</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#aplicar {
+background: rgb(85, 170, 255);
+border: 2px solid black;
+border-radius: 15px;
+}
+
+#aplicar:hover {
+background: rgb(85, 255, 127);
+color: black;
+
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Aplicar</string>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelar">
+   <property name="geometry">
+    <rect>
+     <x>224</x>
+     <y>340</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#cancelar {
+background: red;
+border-radius: 15px;
+border: 2px solid black;
+
+}
+
+#cancelar:hover {
+background: rgb(255, 85, 0);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Cancelar</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="recursos.qrc"/>

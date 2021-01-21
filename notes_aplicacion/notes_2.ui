@@ -6,21 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>577</height>
+    <width>673</width>
+    <height>539</height>
    </rect>
-  </property>
-  <property name="sizeIncrement">
-   <size>
-    <width>700</width>
-    <height>600</height>
-   </size>
-  </property>
-  <property name="baseSize">
-   <size>
-    <width>700</width>
-    <height>600</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -46,16 +34,23 @@ font-size: 50px;
 
 }
 
-#entrada {
-border-radius: 5px;
-color: gray;
-font-size: 15px;
-background-color: black;
+#entrada{
+color: white;
+font-size: 20px;
+background: black;
+border-radius: 14px;
+}
+
+#entrada:focus {
+background: white;
+border: 2px solid black;
+color: black;
 }
 
 #anadir {
 background-color: #36E513;
-border-radius: 5px;
+border-bottom-right-radius: 15px;
+border-top-left-radius: 15px;
 color: white;
 font-size: 15px;
 font-family: Aharoni;
@@ -65,35 +60,76 @@ font-family: Aharoni;
 background-color: #30C911;
 }
 
-#eliminar {
-background-color: rgb(255, 170, 0);
-border-radius: 5px;
-color: white;
-font-size: 15px;
-font-family: Aharoni;
-}
 
-#eliminar:hover{
-background-color: rgb(236, 157, 0);
-}
 
 #lista {
 background-color: black;
 }
 
-#icono_anadir {
-border-radius: 15px;
-background-color: green;
+
+
+#button_promedio {
+background: rgb(255, 170, 0);
+border-bottom-right-radius: 15px;
+border-top-left-radius: 15px;
+color: white;
+font-size: 14px;
 }
 
-#icono_eliminar {
-border-radius: 15px;
-background-color: red;
+
+#button_promedio:hover {
+background: rgb(214, 143, 0);
 }
 
-#promedio {
-background-color: rgb(221, 147, 0);
-border-radius: 15px;
+
+
+/* VERTICAL SCROLLBAR */
+ QScrollBar:vertical {
+	border: none;
+    background: black;
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: grey;
+	min-height: 30px;
+	border-radius: 7px;
+}
+
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: black;
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: black;
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+
+}
+
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
 }
 </string>
   </property>
@@ -175,19 +211,37 @@ border-radius: 15px;
       <height>31</height>
      </rect>
     </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="maxLength">
+     <number>32767</number>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Normal</enum>
+    </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
     </property>
     <property name="placeholderText">
      <string>5.0</string>
     </property>
    </widget>
    <widget class="QPushButton" name="anadir">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>180</x>
       <y>142</y>
-      <width>141</width>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
@@ -201,21 +255,20 @@ border-radius: 15px;
      <string>Agregar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="eliminar">
+   <widget class="QPushButton" name="button_promedio">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>192</y>
-      <width>141</width>
+      <x>180</x>
+      <y>193</y>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Aharoni</family>
       <pointsize>-1</pointsize>
      </font>
     </property>
@@ -226,73 +279,45 @@ border-radius: 15px;
    <widget class="QListWidget" name="lista">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>120</x>
       <y>240</y>
-      <width>311</width>
+      <width>281</width>
       <height>261</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QToolButton" name="icono_anadir">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>137</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">#lista {
+color: white;
+font-size:20px;
+}
+
+#lista::selected:hover {
+color: red;
+}</string>
     </property>
-    <property name="text">
-     <string>...</string>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::NoSelection</enum>
     </property>
-    <property name="icon">
-     <iconset resource="recursos.qrc">
-      <normaloff>:/path/imagenes/nota.ico</normaloff>:/path/imagenes/nota.ico</iconset>
+    <property name="movement">
+     <enum>QListView::Static</enum>
     </property>
-    <property name="iconSize">
-     <size>
-      <width>40</width>
-      <height>35</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="promedio">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>188</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-    <property name="icon">
-     <iconset resource="recursos.qrc">
-      <normaloff>:/path/imagenes/promedio.ico</normaloff>:/path/imagenes/promedio.ico</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>30</width>
-      <height>35</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QScrollBar" name="verticalScrollBar">
-    <property name="geometry">
-     <rect>
-      <x>405</x>
-      <y>280</y>
-      <width>16</width>
-      <height>160</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-    <property name="invertedAppearance">
+    <property name="isWrapping" stdset="0">
      <bool>false</bool>
+    </property>
+    <property name="viewMode">
+     <enum>QListView::ListMode</enum>
+    </property>
+    <property name="batchSize">
+     <number>100</number>
+    </property>
+    <property name="selectionRectVisible">
+     <bool>false</bool>
+    </property>
+    <property name="currentRow">
+     <number>-1</number>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

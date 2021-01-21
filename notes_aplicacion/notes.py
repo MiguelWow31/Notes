@@ -1,4 +1,5 @@
 import sys
+import json
 from time import sleep
 from PyQt5 import uic, QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QDialog
@@ -51,17 +52,26 @@ class VentanaNotes(QDialog):
         self.frame.setGraphicsEffect(self.shadow_prueba)
         self.anadir.clicked.connect(self.texto)
 
+        scroll = QScrollBar()
+        self.lista.setVerticalScrollBar(scroll)
+       
+
         
 
     def texto(self):
         self.nota_texto = str(self.entrada.text())
 
-        self.lista.setStyleSheet("QListWidget {color: white; font-size: 10px;}")
-        
         try:
             self.nota_final = float(self.nota_texto)
-            self.lista.addItem(str(self.nota_final))
-            self.entrada.setText("")
+
+            if self.nota_final < 5.1:
+
+            	count_lista = str(self.lista.count() + 1)
+
+            	self.lista.addItem(f"Nota {count_lista} - {str(self.nota_final)}")
+            	self.entrada.setText("")
+            else:
+            	raise ValueError
 
 
 
@@ -137,6 +147,27 @@ class Ventana_Opciones(QDialog):
 
         self.exportacion.addItem("Si")
         self.exportacion.addItem("No")
+
+        self.aplicar.clicked.connect(self.configuracion)
+        self.cancelar.clicked.connect(self.salir)
+
+    def salir(self):
+        self.close()
+
+    def configuracion(self):
+
+        content_sys = self.sistema.currentText()
+        content_export = self.exportacion.currentText()
+
+        dict_config = {"system":content_sys, "export":content_export}
+
+        with open("config.txt", "w") as file:
+            json.dump(dict_config, file)
+
+      
+
+
+
 
 
 
