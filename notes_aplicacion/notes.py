@@ -1,13 +1,14 @@
 import sys
 import json
 import docx
+import os
 from time import sleep
 from PyQt5 import uic, QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
-qtCreatorFile = "notes.ui"
+qtCreatorFile = os.path.abspath("notes.ui")
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
@@ -42,7 +43,7 @@ class VentanaPrincipal(QtWidgets.QMainWindow, Ui_MainWindow):
 class VentanaNotes(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("notes_2.ui", self)
+        uic.loadUi(os.path.abspath("notes_2.ui"), self)
 
         self.setFixedSize(651, 551)
 
@@ -65,11 +66,6 @@ class VentanaNotes(QDialog):
             lista_notas = [str(self.lista.item(i).text()) for i in range(self.lista.count())]
             print(lista_notas[0][9:12])
 
-
-
-
-
-       
 
     def texto(self):
         self.nota_texto = str(self.entrada.text())
@@ -109,15 +105,12 @@ class VentanaNotes(QDialog):
         except ValueError:
             QtWidgets.QMessageBox.warning(self, "Error_contenido", "La informacion ingresada no es valida", QtWidgets.QMessageBox.Ok)
 
-
-
-
         
 
 class Pantalla_Carga(QtWidgets.QMainWindow):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
-        uic.loadUi("Pantalla_Carga.ui", self)
+        uic.loadUi(os.path.abspath("pantalla_carga.ui") , self)
 
         self.setWindowTitle("Pantalla de carga")
 
@@ -155,7 +148,7 @@ class Ventana_Opciones(QDialog):
     def __init__(self):
         QDialog.__init__(self)
 
-        uic.loadUi("opciones.ui", self)
+        uic.loadUi(os.path.abspath("opciones.ui"), self)
         self.setFixedSize(407, 417)
 
         self.setWindowTitle("Menu Opciones")
