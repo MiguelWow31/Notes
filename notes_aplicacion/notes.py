@@ -131,9 +131,9 @@ class Pantalla_Carga(QtWidgets.QMainWindow):
         self.show()
 
     def barra_carga(self):
-
+        sleep_time = 0.09
         for i in range(1, 101):
-            sleep(0.5)
+            sleep(0.09)
 
             self.progressBar.setValue(i)
 
