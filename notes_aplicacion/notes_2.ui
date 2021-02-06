@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>673</width>
-    <height>539</height>
+    <height>545</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -269,6 +269,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     </property>
     <property name="font">
      <font>
+      <family>Aharoni</family>
       <pointsize>-1</pointsize>
      </font>
     </property>

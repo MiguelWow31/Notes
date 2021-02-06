@@ -1,10 +1,9 @@
 import sys
 import json
+import docx
 from time import sleep
 from PyQt5 import uic, QtWidgets, QtGui, QtCore
-from PyQt5.QtWidgets import QDialog
-from PyQt5.QtWidgets import QScrollBar
-from PyQt5.QtWidgets import QGraphicsDropShadowEffect
+from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
@@ -51,12 +50,26 @@ class VentanaNotes(QDialog):
         self.shadow_prueba.setBlurRadius(110)
         self.frame.setGraphicsEffect(self.shadow_prueba)
         self.anadir.clicked.connect(self.texto)
+        self.button_promedio.clicked.connect(self.promedio)
 
         scroll = QScrollBar()
         self.lista.setVerticalScrollBar(scroll)
-       
 
-        
+
+    def promedio(self):
+
+        if self.lista.count() == 0 or self.lista.count() < 2:
+            QtWidgets.QMessageBox.warning(self, "Error_numero_notas", "No hay suficientes notas para sacar el promedio", QtWidgets.QMessageBox.Ok)
+
+        else:
+            lista_notas = [str(self.lista.item(i).text()) for i in range(self.lista.count())]
+            print(lista_notas[0][9:12])
+
+
+
+
+
+       
 
     def texto(self):
         self.nota_texto = str(self.entrada.text())
@@ -64,14 +77,32 @@ class VentanaNotes(QDialog):
         try:
             self.nota_final = float(self.nota_texto)
 
-            if self.nota_final < 5.1:
+            if self.nota_final > 0.9 and self.nota_final < 5.1:
+                mala = QIcon("imagenes/calificacion/bueno.ico")
+                intermedia = QIcon("imagenes/calificacion/intermedio.ico")
+                buena = QIcon("imagenes/calificacion/malo.ico")
 
-            	count_lista = str(self.lista.count() + 1)
+                count_lista = str(self.lista.count() + 1)
+                elemento = QListWidgetItem(f"Nota {count_lista} - {self.nota_final}", self.lista)
+                elemento.setTextAlignment(Qt.AlignCenter)
+                self.lista.setIconSize(QSize(40, 40))
 
-            	self.lista.addItem(f"Nota {count_lista} - {str(self.nota_final)}")
-            	self.entrada.setText("")
+                if self.nota_final > 3.9:
+                    elemento.setIcon(mala)
+
+                elif self.nota_final > 2.9 and self.nota_final < 4.0:
+                    elemento.setIcon(intermedia)
+
+                elif self.nota_final < 3.0:
+                    elemento.setIcon(buena)
+
+                self.lista.addItem(elemento)
+                self.entrada.setText("")
+
+                
+            
             else:
-            	raise ValueError
+                raise ValueError
 
 
 
@@ -168,17 +199,6 @@ class Ventana_Opciones(QDialog):
 
 
 
-
-
-
-
-
-
-
-
-
-
-        
 
 
 
