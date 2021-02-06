@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
-qtCreatorFile = os.path.abspath("notes.ui")
+qtCreatorFile = os.path.abspath("ui/notes.ui")
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
@@ -43,7 +43,7 @@ class VentanaPrincipal(QtWidgets.QMainWindow, Ui_MainWindow):
 class VentanaNotes(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi(os.path.abspath("notes_2.ui"), self)
+        uic.loadUi(os.path.abspath("ui/notes_2.ui"), self)
 
         self.setFixedSize(651, 551)
 
@@ -93,15 +93,9 @@ class VentanaNotes(QDialog):
                     elemento.setIcon(buena)
 
                 self.lista.addItem(elemento)
-                self.entrada.setText("")
-
-                
-            
+                self.entrada.setText("") 
             else:
                 raise ValueError
-
-
-
         except ValueError:
             QtWidgets.QMessageBox.warning(self, "Error_contenido", "La informacion ingresada no es valida", QtWidgets.QMessageBox.Ok)
 
@@ -110,7 +104,7 @@ class VentanaNotes(QDialog):
 class Pantalla_Carga(QtWidgets.QMainWindow):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
-        uic.loadUi(os.path.abspath("pantalla_carga.ui") , self)
+        uic.loadUi(os.path.abspath("ui/pantalla_carga.ui") , self)
 
         self.setWindowTitle("Pantalla de carga")
 
@@ -134,12 +128,10 @@ class Pantalla_Carga(QtWidgets.QMainWindow):
         sleep_time = 0.09
         for i in range(1, 101):
             sleep(0.09)
-
             self.progressBar.setValue(i)
 
         self.reloj.stop()
         self.close()
-
         self.ventana_main = VentanaPrincipal()
         self.ventana_main.show()
 
@@ -148,7 +140,7 @@ class Ventana_Opciones(QDialog):
     def __init__(self):
         QDialog.__init__(self)
 
-        uic.loadUi(os.path.abspath("opciones.ui"), self)
+        uic.loadUi(os.path.abspath("ui/opciones.ui"), self)
         self.setFixedSize(407, 417)
 
         self.setWindowTitle("Menu Opciones")
