@@ -1,13 +1,14 @@
 import sys
 import json
 import docx
+import os
 from time import sleep
 from PyQt5 import uic, QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
-qtCreatorFile = "notes.ui"
+qtCreatorFile = os.path.abspath("ui/notes.ui")
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
@@ -42,7 +43,7 @@ class VentanaPrincipal(QtWidgets.QMainWindow, Ui_MainWindow):
 class VentanaNotes(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("notes_2.ui", self)
+        uic.loadUi(os.path.abspath("ui/notes_2.ui"), self)
 
         self.setFixedSize(651, 551)
 
@@ -65,11 +66,6 @@ class VentanaNotes(QDialog):
             lista_notas = [str(self.lista.item(i).text()) for i in range(self.lista.count())]
             print(lista_notas[0][9:12])
 
-
-
-
-
-       
 
     def texto(self):
         self.nota_texto = str(self.entrada.text())
@@ -97,27 +93,18 @@ class VentanaNotes(QDialog):
                     elemento.setIcon(buena)
 
                 self.lista.addItem(elemento)
-                self.entrada.setText("")
-
-                
-            
+                self.entrada.setText("") 
             else:
                 raise ValueError
-
-
-
         except ValueError:
             QtWidgets.QMessageBox.warning(self, "Error_contenido", "La informacion ingresada no es valida", QtWidgets.QMessageBox.Ok)
-
-
-
 
         
 
 class Pantalla_Carga(QtWidgets.QMainWindow):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
-        uic.loadUi("Pantalla_Carga.ui", self)
+        uic.loadUi(os.path.abspath("ui/pantalla_carga.ui") , self)
 
         self.setWindowTitle("Pantalla de carga")
 
@@ -138,15 +125,13 @@ class Pantalla_Carga(QtWidgets.QMainWindow):
         self.show()
 
     def barra_carga(self):
-
+        sleep_time = 0.09
         for i in range(1, 101):
-            sleep(0.5)
-
+            sleep(0.09)
             self.progressBar.setValue(i)
 
         self.reloj.stop()
         self.close()
-
         self.ventana_main = VentanaPrincipal()
         self.ventana_main.show()
 
@@ -155,7 +140,7 @@ class Ventana_Opciones(QDialog):
     def __init__(self):
         QDialog.__init__(self)
 
-        uic.loadUi("opciones.ui", self)
+        uic.loadUi(os.path.abspath("ui/opciones.ui"), self)
         self.setFixedSize(407, 417)
 
         self.setWindowTitle("Menu Opciones")

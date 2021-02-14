@@ -12,9 +12,19 @@ obviamente se actualizara a medida que se tengan nuevas ideas.
 2. Multiples Sistemas de nota
 3. Pantalla de carga
 
-
-
-
+# Uso de la app
+### Requisitos
+- Git
+- Python
+- pip
+### Comandos
+```shell
+git clone https://github.com/MiguelWow32/notes.git
+cd notes
+pip install -r requirements.txt
+python notes-aplicacion/notes.py
+```
+###### Nota: si tienes mas de una instalación de python o de pip, usa python3 y pip3
 
 
 
