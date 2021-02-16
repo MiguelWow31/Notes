@@ -23,10 +23,10 @@ class VentanaPrincipal(QtWidgets.QMainWindow, Ui_MainWindow):
         self.opciones_menu = Ventana_Opciones()
 
         self.shadow_inicio = QtWidgets.QGraphicsDropShadowEffect()
-        self.shadow_inicio.setBlurRadius(13)
+        self.shadow_inicio.setBlurRadius(15)
 
         self.shadow_opciones = QtWidgets.QGraphicsDropShadowEffect()
-        self.shadow_opciones.setBlurRadius(13)
+        self.shadow_opciones.setBlurRadius(15)
 
         self.inicio.setGraphicsEffect(self.shadow_inicio)
         self.opciones.setGraphicsEffect(self.shadow_opciones)
@@ -55,6 +55,10 @@ class VentanaNotes(QDialog):
 
         scroll = QScrollBar()
         self.lista.setVerticalScrollBar(scroll)
+        self.config()
+
+    def config(self):
+        print(os.listdir())
 
 
     def promedio(self):
@@ -63,8 +67,12 @@ class VentanaNotes(QDialog):
             QtWidgets.QMessageBox.warning(self, "Error_numero_notas", "No hay suficientes notas para sacar el promedio", QtWidgets.QMessageBox.Ok)
 
         else:
-            lista_notas = [str(self.lista.item(i).text()) for i in range(self.lista.count())]
-            print(lista_notas[0][9:12])
+            lista_notas = [str(self.lista.item(i).text()[9:12]) for i in range(self.lista.count())]
+            float_notas = map(lambda nota: float(nota), lista_notas)
+            promedio_text = sum(float_notas) / self.lista.count()
+            self.nota.setText(str(promedio_text))
+            
+
 
 
     def texto(self):

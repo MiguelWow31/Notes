@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>407</width>
-    <height>417</height>
+    <height>416</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,7 @@ border-radius: 15px;
     <string>...</string>
    </property>
    <property name="icon">
-    <iconset resource="recursos.qrc">
+    <iconset resource="../recursos.qrc">
      <normaloff>:/path/imagenes/opciones.ico</normaloff>:/path/imagenes/opciones.ico</iconset>
    </property>
    <property name="iconSize">
@@ -136,13 +136,13 @@ font-size: 13px;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="opcion2">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>150</x>
      <y>250</y>
-     <width>91</width>
-     <height>16</height>
+     <width>121</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -152,7 +152,7 @@ font-size: 13px;
     </font>
    </property>
    <property name="text">
-    <string>Exportacion</string>
+    <string>Limite de notas</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame_2">
@@ -272,7 +272,7 @@ background: rgb(255, 85, 0);
   </widget>
  </widget>
  <resources>
-  <include location="recursos.qrc"/>
+  <include location="../recursos.qrc"/>
  </resources>
  <connections/>
 </ui>
