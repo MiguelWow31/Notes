@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>407</width>
-    <height>416</height>
+    <width>540</width>
+    <height>458</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,13 +16,15 @@
   <property name="styleSheet">
    <string notr="true">QDialog {
 background: white;
-}</string>
+}
+
+</string>
   </property>
   <widget class="QToolButton" name="icono">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>10</y>
+     <x>260</x>
+     <y>0</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -48,33 +50,11 @@ border-radius: 15px;
     </size>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>160</y>
-     <width>391</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QFrame {
-background: white;
-border-radius: 15px;
-}</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
   <widget class="QLabel" name="titulo">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>70</y>
+     <x>200</x>
+     <y>60</y>
      <width>181</width>
      <height>31</height>
     </rect>
@@ -98,102 +78,13 @@ border-radius: 15px;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QComboBox" name="sistema">
-   <property name="geometry">
-    <rect>
-     <x>135</x>
-     <y>165</y>
-     <width>151</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#sistema {
-font-size: 13px;
-
-}</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="opcion1">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>130</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Aharoni</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Sistema de notas:</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="opcion2">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>250</y>
-     <width>121</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Aharoni</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Limite de notas</string>
-   </property>
-  </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>280</y>
-     <width>391</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QFrame {
-background: white;
-border-radius: 14px;
-}</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QComboBox" name="exportacion">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>5</y>
-      <width>141</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>390</y>
-     <width>388</width>
-     <height>32</height>
+     <y>440</y>
+     <width>521</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -212,8 +103,8 @@ border-radius: 14px;
   <widget class="QPushButton" name="aplicar">
    <property name="geometry">
     <rect>
-     <x>84</x>
-     <y>340</y>
+     <x>160</x>
+     <y>385</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -246,8 +137,8 @@ color: black;
   <widget class="QPushButton" name="cancelar">
    <property name="geometry">
     <rect>
-     <x>224</x>
-     <y>340</y>
+     <x>300</x>
+     <y>385</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -269,6 +160,145 @@ background: rgb(255, 85, 0);
    <property name="text">
     <string>Cancelar</string>
    </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>90</y>
+     <width>451</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <property name="styleSheet">
+     <string notr="true">#tab {
+background: black;
+}</string>
+    </property>
+    <attribute name="title">
+     <string>Tab 1</string>
+    </attribute>
+    <widget class="QLabel" name="opcion_1">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>121</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+font-size: 15px;
+color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string>Sistema de notas</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="sistema_notas">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>30</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>391</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="opcion_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+font-size: 15px;
+color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string>Numero de notas</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="numero_notas">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>100</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>145</y>
+       <width>391</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="opcion_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>190</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+font-size: 15px;
+color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string>Exportacion</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="exportacion">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>190</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources>

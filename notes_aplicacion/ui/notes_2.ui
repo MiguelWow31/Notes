@@ -269,7 +269,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     </property>
     <property name="font">
      <font>
-      <family>Aharoni</family>
       <pointsize>-1</pointsize>
      </font>
     </property>
@@ -323,8 +322,6 @@ color: red;
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="recursos.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
